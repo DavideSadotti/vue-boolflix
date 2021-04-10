@@ -27,13 +27,29 @@
       <!-- CORPO DELLA PAGINA -->
       <main>
         <div class="container">
-          <div v-for="film in filmList" class="card">
-            <img :src="'https://image.tmdb.org/t/p/w300' + film.poster_path" alt=""></img>
+          <div v-for="film in filmList" class="card" v-if="film.poster_path != null">
+            <img :src="'https://image.tmdb.org/t/p/w300' + film.poster_path"></img>
             <div>
-              <p><strong>Titolo: </strong>{{ film.title }}</p>
-              <p><strong>Titolo originale: </strong>{{ film.original_title }}</p>
-              <p><strong>Voto: </strong>{{ film.vote_average / 2 }}/5</p>
-              <p><strong>Overview: </strong>{{ film.overview  }}</p>
+              <p>
+                <strong>Titolo: </strong>
+                <span v-if="film.title ? film.title : film.title = film.name">{{ film.title }}</span>
+              </p>
+              <p>
+                <strong>Titolo originale: </strong>
+                <span v-if="film.original_title ? film.original_title : film.original_title = film.original_name">{{ film.original_title }}</span>
+              </p>
+              <p>
+                <strong>Lingua originale: </strong>
+                <img v-if="film.original_language == 'en' ? film.original_language = 'gb' : film.original_language" :src="'https://www.countryflags.io/' + film.original_language + '/flat/16.png'">
+              </p>
+              <p>
+                <strong>Voto: </strong>
+                {{ film.vote_average / 2 }}/5
+              </p>
+              <p>
+                <strong>Overview: </strong>
+                {{ film.overview  }}
+              </p>
             </div>
           </div>
         </div>

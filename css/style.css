@@ -70,14 +70,25 @@ main{
   color: white;
   display: none;
   height: 450px;
-  overflow: auto;
   font-size: 13px;
   padding: 15px;
   border: 1px solid white;
   text-align: justify;
 }
 
-.card:hover img{
+.card > div > p > img{
+  vertical-align: middle;
+  margin-left: 5px;
+}
+
+.card > div > p:last-child{
+  display: -webkit-box;
+  -webkit-line-clamp: 15;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card:hover > img{
   display: none;
 }
 
