@@ -16,7 +16,6 @@ var app = new Vue(
         })
         .then((response) => {
           this.filmList = response.data.results;
-          console.log(this.filmList);
         })
         this.filmTitle = "";
       }

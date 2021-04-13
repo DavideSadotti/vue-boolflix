@@ -30,7 +30,7 @@
       <main>
         <div class="container">
           <div v-for="film in filmList" class="card" v-if="film.poster_path != null">
-            <img :src="'https://image.tmdb.org/t/p/w300' + film.poster_path"></img>
+            <img :src="'https://image.tmdb.org/t/p/w300' + film.poster_path">
             <div>
               <p>
                 <strong>Titolo: </strong>
