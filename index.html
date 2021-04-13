@@ -2,6 +2,8 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous">
     <!-- FONT POPPINS -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
@@ -19,8 +21,8 @@
       <header>
         <img src="https://fontmeme.com/permalink/210409/4937b74c6317b36c509baa13669b4b20.png">
         <div>
-          <input type="text" placeholder="Effettua una ricerca" v-model="filmTitle" @keydown.13="search">
-          <button @click="search">Cerca</button>
+          <input type="text" placeholder="Effettua una ricerca" v-model="filmTitle" @keydown.13="search"><!--
+          --><button @click="search"><i class="fas fa-search"></i></button>
         </div>
       </header>
 
@@ -44,7 +46,11 @@
               </p>
               <p>
                 <strong>Voto: </strong>
-                {{ film.vote_average / 2 }}/5
+                <i v-if="(film.vote_average / 2).toFixed() > 0" class="fas fa-star"></i>
+                <i v-if="(film.vote_average / 2).toFixed() > 1" class="fas fa-star"></i>
+                <i v-if="(film.vote_average / 2).toFixed() > 2" class="fas fa-star"></i>
+                <i v-if="(film.vote_average / 2).toFixed() > 3" class="fas fa-star"></i>
+                <i v-if="(film.vote_average / 2).toFixed() > 4" class="fas fa-star"></i>
               </p>
               <p>
                 <strong>Overview: </strong>
