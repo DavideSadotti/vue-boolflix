@@ -34,11 +34,11 @@
             <div>
               <p>
                 <strong>Titolo: </strong>
-                <span v-if="film.title ? film.title : film.title = film.name">{{ film.title }}</span>
+                <span>{{ film.title || film.name }}</span>
               </p>
               <p>
                 <strong>Titolo originale: </strong>
-                <span v-if="film.original_title ? film.original_title : film.original_title = film.original_name">{{ film.original_title }}</span>
+                <span>{{ film.original_title || film.original_name}}</span>
               </p>
               <p>
                 <strong>Lingua originale: </strong>
